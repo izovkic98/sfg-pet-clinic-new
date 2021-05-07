@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.izovkic</groupId>
     <artifactId>sfg-pet-clinic-new</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>sfg-pet-clinic-new</name>
     <description>pet clinic</description>
     <properties>
@@ -50,7 +50,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/izovkic98/sfg-pet-clinic-new.git</developerConnection>
-      <tag>sfg-pet-clinic-new-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
