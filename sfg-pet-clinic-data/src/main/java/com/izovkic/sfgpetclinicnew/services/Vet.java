@@ -1,16 +1,5 @@
 package com.izovkic.sfgpetclinicnew.services;
 
-import com.izovkic.sfgpetclinicnew.model.Owner;
+public interface Vet extends CrudService<Vet, Long>{
 
-import java.util.Set;
-
-public interface Vet {
-
-    Vet findByLastName(String lastName);
-
-    Vet findById(Long id);
-
-    Vet save(Vet vet);
-
-    Set<Vet> findAll();
 }
