@@ -2,9 +2,11 @@ package com.izovkic.sfgpetclinicnew.map;
 
 import com.izovkic.sfgpetclinicnew.model.Pet;
 import com.izovkic.sfgpetclinicnew.services.CrudService;
+import com.izovkic.sfgpetclinicnew.services.PetService;
+
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet,Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -29,5 +31,10 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Pet findByLastName(String name) {
+        return null;
     }
 }
