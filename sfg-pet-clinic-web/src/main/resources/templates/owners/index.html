@@ -18,15 +18,15 @@
 
 <table style="background: aqua">
 
-    <thread>
+    <thead>
         <tr>
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
         </tr>
-    </thread>
+    </thead>
 
-    <body>
+    <tbody>
     <tr th:each="owner:${owners}">
 
         <td th:text="${owner.id}">1</td>
@@ -34,7 +34,7 @@
         <td th:text="${owner.lastName}">Buck</td>
 
     </tr>
-    </body>
+    </tbody>
 
 </table>
 </body>

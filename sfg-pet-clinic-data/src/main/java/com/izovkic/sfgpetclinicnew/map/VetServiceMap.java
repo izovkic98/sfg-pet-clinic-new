@@ -1,11 +1,12 @@
 package com.izovkic.sfgpetclinicnew.map;
 
 import com.izovkic.sfgpetclinicnew.model.Vet;
-import com.izovkic.sfgpetclinicnew.services.CrudService;
 import com.izovkic.sfgpetclinicnew.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService  {
 
     @Override
@@ -19,8 +20,8 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
     }
 
     @Override
-    public Vet save(Vet object) {
-        return super.save(object.getId(),object);
+    public void save(Vet object) {
+        super.save(object.getId(), object);
     }
 
     @Override
