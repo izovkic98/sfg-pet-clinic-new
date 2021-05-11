@@ -1,7 +1,5 @@
 package com.izovkic.sfgpetclinicnew.bootstrap;
 
-import com.izovkic.sfgpetclinicnew.map.OwnerServiceMap;
-import com.izovkic.sfgpetclinicnew.map.VetServiceMap;
 import com.izovkic.sfgpetclinicnew.model.Owner;
 import com.izovkic.sfgpetclinicnew.model.Vet;
 import com.izovkic.sfgpetclinicnew.services.OwnerService;
@@ -15,10 +13,11 @@ public class DataLoader implements CommandLineRunner{
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -27,12 +26,13 @@ public class DataLoader implements CommandLineRunner{
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
-
+        owner1.setId(1L);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
+        owner2.setId(2L);
 
         ownerService.save(owner2);
 
