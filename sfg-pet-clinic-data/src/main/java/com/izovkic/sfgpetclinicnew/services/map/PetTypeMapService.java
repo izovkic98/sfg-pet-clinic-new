@@ -1,4 +1,4 @@
-package com.izovkic.sfgpetclinicnew.map;
+package com.izovkic.sfgpetclinicnew.services.map;
 
 import com.izovkic.sfgpetclinicnew.model.PetType;
 import com.izovkic.sfgpetclinicnew.services.PetTypeService;
