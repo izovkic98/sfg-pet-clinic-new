@@ -1,0 +1,10 @@
+package com.izovkic.sfgpetclinicnew.repositories;
+
+import com.izovkic.sfgpetclinicnew.model.Owner;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OwnerRepository extends CrudRepository<Owner,Long> {
+
+}
