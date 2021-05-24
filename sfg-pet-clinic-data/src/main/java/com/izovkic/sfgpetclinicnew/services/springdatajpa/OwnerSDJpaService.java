@@ -1,10 +1,7 @@
 package com.izovkic.sfgpetclinicnew.services.springdatajpa;
 
 import com.izovkic.sfgpetclinicnew.model.Owner;
-import com.izovkic.sfgpetclinicnew.repositories.OwnerRepository;
-import com.izovkic.sfgpetclinicnew.repositories.PetRepository;
-import com.izovkic.sfgpetclinicnew.repositories.VetRepository;
-import com.izovkic.sfgpetclinicnew.repositories.VisitRepository;
+import com.izovkic.sfgpetclinicnew.repositories.*;
 import com.izovkic.sfgpetclinicnew.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -18,15 +15,14 @@ public class OwnerSDJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
     private final PetRepository petRepository;
-    private final VetRepository vetRepository;
-    private final VisitRepository visitRepository;
+    private final PetTypeRepository petTypeRepository;
 
     public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository,
-                             VetRepository vetRepository, VisitRepository visitRepository) {
+                             PetTypeRepository petTypeRepository) {
         this.ownerRepository = ownerRepository;
         this.petRepository = petRepository;
-        this.vetRepository = vetRepository;
-        this.visitRepository = visitRepository;
+        this.petTypeRepository = petTypeRepository;
+
     }
 
     @Override
