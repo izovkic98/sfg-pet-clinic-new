@@ -62,12 +62,12 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
-        owner1.setAdress("Velika Kosnica 37");
+        owner1.setAddress("Velika Kosnica 37");
         owner1.setCity("Zagreb");
         owner1.setTelephone("0958887449");
 
         Owner owner = Owner.builder()
-                .adress("213123")
+                .address("213123")
                 .city("dads")
                 .telephone("fsdfdfsdf")
                 .build();
@@ -84,7 +84,7 @@ public class DataLoader implements CommandLineRunner {
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
-        owner2.setAdress("Velika Kosnica 37");
+        owner2.setAddress("Velika Kosnica 37");
         owner2.setCity("Zagreb");
         owner2.setTelephone("0958887449");
 
@@ -99,7 +99,7 @@ public class DataLoader implements CommandLineRunner {
 
         Visit visit = new Visit();
         visit.setPet(fionasCat);
-        visit.setLocalDate(LocalDate.now());
+        visit.setDate(LocalDate.now());
         visit.setDescription("Flees");
 
         visitService.save(visit);
