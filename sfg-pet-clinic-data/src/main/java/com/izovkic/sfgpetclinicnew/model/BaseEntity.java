@@ -15,6 +15,8 @@ import java.io.Serializable;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
+//    Provjera git pusha
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
