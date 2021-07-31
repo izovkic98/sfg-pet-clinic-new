@@ -4,8 +4,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+/**
+ * Created by jt on 7/21/18.
+ */
+
 @Service
-public interface CrudService<T,ID> {
+public interface CrudService<T, ID> {
 
     Set<T> findAll();
 
@@ -16,6 +20,4 @@ public interface CrudService<T,ID> {
     void delete(T object);
 
     void deleteById(ID id);
-
-
 }

@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.map;
 
+
 import com.izovkic.sfgpetclinicnew.model.Visit;
 import com.izovkic.sfgpetclinicnew.services.VisitService;
 import org.springframework.context.annotation.Profile;
@@ -7,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+/**
+ * Created by jt on 8/7/18.
+ */
 @Service
-@Profile({"default","map"})
-
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
-
 
     @Override
     public Set<Visit> findAll() {
@@ -19,16 +21,16 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     }
 
     @Override
-    public void deleteById(Long id) {
-        super.deleteById(id);
+    public Visit findById(Long id) {
+        return super.findById(id);
     }
 
     @Override
     public Visit save(Visit visit) {
 
-        if (visit.getPet().getId() == null || visit.getPet().getOwner().getId() == null
-                || visit.getPet() == null || visit.getPet().getOwner() == null) {
-            throw new RuntimeException("Invaldi Visit");
+        if(visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
+            || visit.getPet().getOwner().getId() == null){
+            throw new RuntimeException("Invalid Visit");
         }
 
         return super.save(visit);
@@ -40,7 +42,7 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     }
 
     @Override
-    public Visit findById(Long id) {
-        return super.findById(id);
+    public void deleteById(Long id) {
+        super.deleteById(id);
     }
 }

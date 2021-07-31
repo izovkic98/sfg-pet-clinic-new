@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.springdatajpa;
 
+
 import com.izovkic.sfgpetclinicnew.model.PetType;
 import com.izovkic.sfgpetclinicnew.repositories.PetTypeRepository;
 import com.izovkic.sfgpetclinicnew.services.PetTypeService;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by jt on 8/5/18.
+ */
 @Service
 @Profile("springdatajpa")
 public class PetTypeSDJpaService implements PetTypeService {
@@ -23,7 +27,6 @@ public class PetTypeSDJpaService implements PetTypeService {
     public Set<PetType> findAll() {
         Set<PetType> petTypes = new HashSet<>();
         petTypeRepository.findAll().forEach(petTypes::add);
-
         return petTypes;
     }
 

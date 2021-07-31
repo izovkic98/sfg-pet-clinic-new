@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.springdatajpa;
 
+
 import com.izovkic.sfgpetclinicnew.model.Vet;
 import com.izovkic.sfgpetclinicnew.repositories.VetRepository;
 import com.izovkic.sfgpetclinicnew.services.VetService;
@@ -9,8 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by jt on 8/5/18.
+ */
 @Service
-@Profile("springdatajpa ")
+@Profile("springdatajpa")
 public class VetSDJpaService implements VetService {
 
     private final VetRepository vetRepository;
@@ -18,7 +22,6 @@ public class VetSDJpaService implements VetService {
     public VetSDJpaService(VetRepository vetRepository) {
         this.vetRepository = vetRepository;
     }
-
 
     @Override
     public Set<Vet> findAll() {

@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.springdatajpa;
 
+
 import com.izovkic.sfgpetclinicnew.model.Visit;
 import com.izovkic.sfgpetclinicnew.repositories.VisitRepository;
 import com.izovkic.sfgpetclinicnew.services.VisitService;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by jt on 8/7/18.
+ */
 @Service
 @Profile("springdatajpa")
 public class VisitSDJpaService implements VisitService {
@@ -19,14 +23,10 @@ public class VisitSDJpaService implements VisitService {
         this.visitRepository = visitRepository;
     }
 
-
     @Override
     public Set<Visit> findAll() {
-
         Set<Visit> visits = new HashSet<>();
-
         visitRepository.findAll().forEach(visits::add);
-
         return visits;
     }
 

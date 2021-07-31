@@ -1,7 +1,10 @@
 package com.izovkic.sfgpetclinicnew.services.springdatajpa;
 
+
 import com.izovkic.sfgpetclinicnew.model.Owner;
-import com.izovkic.sfgpetclinicnew.repositories.*;
+import com.izovkic.sfgpetclinicnew.repositories.OwnerRepository;
+import com.izovkic.sfgpetclinicnew.repositories.PetRepository;
+import com.izovkic.sfgpetclinicnew.repositories.PetTypeRepository;
 import com.izovkic.sfgpetclinicnew.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -10,6 +13,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Created by jt on 8/5/18.
+ */
 @Service
 @Profile("springdatajpa")
 public class OwnerSDJpaService implements OwnerService {
@@ -23,15 +29,22 @@ public class OwnerSDJpaService implements OwnerService {
         this.ownerRepository = ownerRepository;
         this.petRepository = petRepository;
         this.petTypeRepository = petTypeRepository;
+    }
 
+    @Override
+    public Owner findByLastName(String lastName) {
+        return ownerRepository.findByLastName(lastName);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
     }
 
     @Override
     public Set<Owner> findAll() {
-
         Set<Owner> owners = new HashSet<>();
         ownerRepository.findAll().forEach(owners::add);
-
         return owners;
     }
 
@@ -52,17 +65,6 @@ public class OwnerSDJpaService implements OwnerService {
 
     @Override
     public void deleteById(Long aLong) {
-
         ownerRepository.deleteById(aLong);
-    }
-
-    @Override
-    public Owner findByLastName(String lastName) {
-        return ownerRepository.findByLastName(lastName);
-    }
-
-    @Override
-    public List<Owner> findAllByLastNameLike(String lastName) {
-        return ownerRepository.findAllByLastNameLike(lastName);
     }
 }

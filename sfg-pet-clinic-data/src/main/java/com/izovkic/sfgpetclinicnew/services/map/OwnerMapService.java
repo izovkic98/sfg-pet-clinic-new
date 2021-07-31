@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.map;
 
+
 import com.izovkic.sfgpetclinicnew.model.Owner;
 import com.izovkic.sfgpetclinicnew.model.Pet;
 import com.izovkic.sfgpetclinicnew.services.OwnerService;
@@ -11,14 +12,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Created by jt on 7/21/18.
+ */
 @Service
-@Profile({"default","map"})
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+@Profile({"default", "map"})
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
     private final PetService petService;
 
-    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+    public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
     }
@@ -36,15 +40,15 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner save(Owner object) {
 
-        if (object != null) {
+        if(object != null){
             if (object.getPets() != null) {
                 object.getPets().forEach(pet -> {
-                    if (pet.getPetType() != null) {
-                        if (pet.getPetType().getId() == null) {
+                    if (pet.getPetType() != null){
+                        if(pet.getPetType().getId() == null){
                             pet.setPetType(petTypeService.save(pet.getPetType()));
                         }
                     } else {
-                        throw new RuntimeException("PetType is required");
+                        throw new RuntimeException("Pet Type is required");
                     }
 
                     if(pet.getId() == null){
@@ -59,13 +63,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         } else {
             return null;
         }
-
     }
 
     @Override
-    public void delete(Owner owner) {
-        super.delete(owner);
-
+    public void delete(Owner object) {
+        super.delete(object);
     }
 
     @Override
@@ -75,19 +77,17 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-
-        return super.findAll()
+        return this.findAll()
                 .stream()
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
                 .findFirst()
                 .orElse(null);
-
     }
 
     @Override
     public List<Owner> findAllByLastNameLike(String lastName) {
-//        impl
 
+        //todo - impl
         return null;
     }
 }

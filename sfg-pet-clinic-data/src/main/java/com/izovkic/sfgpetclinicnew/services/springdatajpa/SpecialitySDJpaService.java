@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.springdatajpa;
 
+
 import com.izovkic.sfgpetclinicnew.model.Speciality;
 import com.izovkic.sfgpetclinicnew.repositories.SpecialtyRepository;
 import com.izovkic.sfgpetclinicnew.services.SpecialtyService;
@@ -9,13 +10,16 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by jt on 8/5/18.
+ */
 @Service
 @Profile("springdatajpa")
-public class SpecialtySDJpaService implements SpecialtyService {
+public class SpecialitySDJpaService implements SpecialtyService {
 
     private final SpecialtyRepository specialtyRepository;
 
-    public SpecialtySDJpaService(SpecialtyRepository specialtyRepository) {
+    public SpecialitySDJpaService(SpecialtyRepository specialtyRepository) {
         this.specialtyRepository = specialtyRepository;
     }
 
@@ -30,7 +34,6 @@ public class SpecialtySDJpaService implements SpecialtyService {
     public Speciality findById(Long aLong) {
         return specialtyRepository.findById(aLong).orElse(null);
     }
-
 
     @Override
     public Speciality save(Speciality object) {

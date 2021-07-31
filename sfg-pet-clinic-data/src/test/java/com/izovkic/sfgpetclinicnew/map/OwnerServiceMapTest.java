@@ -1,8 +1,8 @@
 package com.izovkic.sfgpetclinicnew.map;
 
 import com.izovkic.sfgpetclinicnew.model.Owner;
-import com.izovkic.sfgpetclinicnew.services.map.OwnerServiceMap;
-import com.izovkic.sfgpetclinicnew.services.map.PetServiceMap;
+import com.izovkic.sfgpetclinicnew.services.map.OwnerMapService;
+import com.izovkic.sfgpetclinicnew.services.map.PetMapService;
 import com.izovkic.sfgpetclinicnew.services.map.PetTypeMapService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,13 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OwnerServiceMapTest {
 
-    OwnerServiceMap ownerServiceMap;
+    OwnerMapService ownerServiceMap;
     final Long ownerId =1L;
     String lastName = "Ivan";
 
     @BeforeEach
     void setUp() {
-        ownerServiceMap = new OwnerServiceMap(new PetTypeMapService(),new PetServiceMap());
+        ownerServiceMap = new OwnerMapService(new PetTypeMapService(),new PetMapService());
         ownerServiceMap.save(Owner.builder().id(1L).lastName(lastName).build());
 
     }

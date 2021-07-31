@@ -1,5 +1,6 @@
 package com.izovkic.sfgpetclinicnew.services.map;
 
+
 import com.izovkic.sfgpetclinicnew.model.Pet;
 import com.izovkic.sfgpetclinicnew.services.PetService;
 import org.springframework.context.annotation.Profile;
@@ -7,9 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+/**
+ * Created by jt on 7/21/18.
+ */
 @Service
-@Profile({"default","map"})
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+@Profile({"default", "map"})
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();
@@ -22,22 +26,16 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet save(Pet object) {
-        return super.save( object);
+        return super.save(object);
     }
 
     @Override
-    public void delete(Pet pet) {
-        super.delete(pet);
-
+    public void delete(Pet object) {
+        super.delete(object);
     }
 
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
-    }
-
-    @Override
-    public Pet findByLastName(String name) {
-        return null;
     }
 }
